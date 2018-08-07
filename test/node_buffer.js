@@ -8,3 +8,6 @@ const buf1 = Buffer.alloc(10);
 const buf2 = Buffer.alloc(10,1);
 //创建一个长度为10，且未初始化的Buffer
 const buf3 = Buffer.allocUnsafe(10);
+
+console.log(buf1==buf3);
+console.log(buf1===buf3);
