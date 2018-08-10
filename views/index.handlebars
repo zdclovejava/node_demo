@@ -1,0 +1,32 @@
+<h1>Welcome to Meadowlark Travel{{user.username}}</h1>
+
+<p><a href="/about">Your fortune for the day:</a></p>
+<blockquote>{{fortune}}</blockquote>
+
+<ul>
+    {{#each data.tours}}
+    {{! I'm in a new block...and the context has changed }}
+        <li>
+            {{name}} - {{price}}
+            {{#if ../currencies}}
+                ({{../../currency.abbrev}})
+            {{/if}}
+        </li>
+    {{/each}}
+</ul>
+{{#unless data.currencies}}
+    <p>All prices in {{data.currency.name}}.</p>
+{{/unless}}
+{{#if data.specialsUrl}}
+{{! I'm in a new block...but the context hasn't changed (sortof) }}
+    <p>Check out our <a href="{{data.specialsUrl}}">specials!</p>
+{{else}}
+    <p>Please check back often for specials.</p>
+{{/if}}
+<p>
+    {{#each data.currencies}}
+        <a href="#" class="currency">{{.}}</a>
+    {{else}}
+        Unfortunately, we currently only accept {{data.currency.name}}.
+    {{/each}}
+</p>

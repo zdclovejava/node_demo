@@ -14,10 +14,30 @@
 // }
 // console.log(name);
 
-var a = [];
-for (var i = 0; i < 10; i++) {
-    a[i] = function () {
-        console.log(i);
-    };
-}
-a[6]();
+// var a = [];
+// for (var i = 0; i < 10; i++) {
+//     a[i] = function () {
+//         console.log(i);
+//     };
+// }
+// a[6]();
+
+// var test_module = require('../lib/test_module');
+// console.log("操作前",test_module.curr_data);
+// test_module.add(6);
+// console.log("增加一个数字6后",test_module.curr_data);
+// test_module.sub(2);
+// console.log("删除数组中的第二项后",test_module.curr_data);
+//
+// var t = require('../lib/test-module');
+// console.log("重新引用",t.curr_data);
+
+
+const Hello = require('../lib/hello');
+const hello = new Hello();
+hello.setName("张三");
+hello.sayHello();
+
+const Hello2 = require('../lib/hello');
+const hello2 = new Hello2();
+hello2.sayHello();

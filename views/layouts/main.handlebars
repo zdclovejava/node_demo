@@ -1,0 +1,35 @@
+{{!默认模板}}
+<!doctype html>
+<html>
+<head>
+    <head>
+        <title>Meadowlark Travel</title>
+        {{#if isTest}}
+            <link rel="stylesheet" href="/vendor/mocha.css">
+        {{/if}}
+        <script src="/javascripts/jquery-1.9.1.min.js"></script>
+    </head>
+</head>
+<body>
+
+{{!增加测试插件}}
+{{#if isTest}}
+    <div id="mocha"></div>
+    <script src="/vendor/mocha.js"></script>
+    <script src="/vendor/chai.js"></script>
+    <script>
+        mocha.ui('tdd');
+        var assert = chai.assert;
+        console.log(assert);
+    </script>
+    <script src="/qa/tests-global.js"></script>
+    {{#if pageTestScript}}
+        <script src="{{pageTestScript}}"></script>
+    {{/if}}
+    <script>mocha.run();</script>
+{{/if}}
+
+<header><img src="/images/logo.jpg" alt="Meadowlark Travel Logo"></header>
+{{{body}}}
+</body>
+</html>
